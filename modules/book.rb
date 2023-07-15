@@ -10,6 +10,9 @@ class Book < Item
   end
 
   def can_be_archived?
-    super || @cover_state == 'bad'
+    super || (@cover_state.downcase == 'bad')
   end
 end
+
+book = Book.new('2012-12-12', 'oxfoard', 'bad')
+puts book.can_be_archived?
