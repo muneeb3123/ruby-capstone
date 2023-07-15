@@ -9,7 +9,6 @@ class Item
     @archived = false
   end
 
-
   def move_to_archived
     @archived = can_be_archived?
   end
@@ -19,5 +18,4 @@ class Item
   def can_be_archived?
     (Date.today - @publish_date).to_i > (10 * 365)
   end
-
 end
