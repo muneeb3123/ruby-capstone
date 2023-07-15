@@ -2,6 +2,7 @@ require 'date'
 
 class Item
   attr_accessor :publish_date
+  attr_reader :label
 
   def initialize(publish_date, id: rand(1..1000))
     @id = id
@@ -20,5 +21,5 @@ class Item
 
   def can_be_archived?
     Date.today.year - @publish_date.year > (10 * 365)
-  end    
+  end
 end

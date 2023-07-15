@@ -13,6 +13,3 @@ class Book < Item
     super || (@cover_state.downcase == 'bad')
   end
 end
-
-book = Book.new('2012-12-12', 'oxfoard', 'bad')
-puts book.can_be_archived?
