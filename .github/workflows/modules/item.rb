@@ -14,6 +14,11 @@ class Item
     @archived = can_be_archived?
   end
 
+  def add_label(label)
+    @label = label
+    label.add_item(self) unless label.items.include?(self)
+  end
+
   private
 
   def can_be_archived?
@@ -21,3 +26,4 @@ class Item
   end
 
 end
+
