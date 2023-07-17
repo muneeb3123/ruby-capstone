@@ -19,7 +19,9 @@ class Item
     label.add_item(self) unless label.items.include?(self)
   end
 
+  private
+
   def can_be_archived?
-    Date.today.year - @publish_date.year > (10 * 365)
+    (Date.today - @publish_date).to_i > (10 * 365)
   end
 end
