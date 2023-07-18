@@ -34,4 +34,9 @@ class App
   def add_a_game
     puts 'call the method add_a_game'
   end
+
+  def quit
+    puts 'Thank you for using our app!'
+    exit
+  end
 end
