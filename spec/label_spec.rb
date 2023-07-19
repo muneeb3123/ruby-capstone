@@ -1,5 +1,5 @@
 require_relative '../modules/label'
-require_relative '../modules/item' 
+require_relative '../modules/item'
 
 describe Label do
   let(:label) { Label.new('Sci-Fi', 'blue') }
