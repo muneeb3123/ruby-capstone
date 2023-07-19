@@ -1,0 +1,22 @@
+require_relative '../modules/book'
+
+describe Book do
+    it 'should initialize class and instance variable' do
+      book = Book.new('2012-12-12', 'oxfoard', 'good')
+      expect(book).to have_attributes(publisher: 'oxfoard', publish_date: Date.parse('2012-12-12'), cover_state: 'good')
+    end
+  
+    context 'when cover state is bad' do
+      it 'returns true' do
+        book = Book.new('2012-12-12', 'oxfoard', 'bad')
+        expect(book.can_be_archived?).to be true
+      end
+    end
+  
+    context 'when cover state is good' do
+      it 'returns false' do
+        book = Book.new('2019-12-12', 'oxfoard', 'good')
+        expect(book.can_be_archived?).to be false
+      end
+    end
+  end
