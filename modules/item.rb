@@ -6,7 +6,6 @@ class Item
 
   def initialize(publish_date, author, id: rand(1..1000))
     @id = id
-    @author = author
     @publish_date = Date.parse(publish_date)
     @archived = false
   end
@@ -18,6 +17,16 @@ class Item
   def add_label(label)
     @label = label
     label.add_item(self) unless label.items.include?(self)
+  end
+
+  def add_author(author)
+    @author = author
+    author.add_item(self) unless author.items.include?(self)
+  end
+
+  def add_genre(genre)
+    @genre = genre
+    genre.add_item(self) unless genre.items.include?(self)
   end
 
   private

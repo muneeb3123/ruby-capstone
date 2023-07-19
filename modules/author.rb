@@ -5,7 +5,7 @@ class Author < Item
   attr_reader :items
 
   def initialize(publish_date, first_name, last_name, id: rand(1..1000))
-    super(publish_date, first_name)
+    super(publish_date)
     @id = id
     @first_name = first_name
     @last_name = last_name
@@ -14,6 +14,6 @@ class Author < Item
 
   def add_item(item)
     @items << item
-    item.author = first_name
+    item.add_author(self)
   end
 end
