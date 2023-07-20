@@ -1,6 +1,6 @@
 require_relative 'modules/data'
-require_relative 'module/game'
-require_relative 'module/author'
+require_relative 'modules/game'
+require_relative 'modules/author'
 
 class App
   attr_reader :games, :authors
