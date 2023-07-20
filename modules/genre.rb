@@ -1,15 +1,13 @@
 class Genre
-  attr_accessor :name
-  attr_reader :items, :id
+  attr_accessor :name, :description, :items
 
-  def initialize(name)
-    @id = Random.rand(1..100_000)
+  def initialize(name, description)
     @name = name
+    @description = description
     @items = []
   end
 
   def add_item(item)
     @items << item
-    item.add_genre(self)
   end
 end
