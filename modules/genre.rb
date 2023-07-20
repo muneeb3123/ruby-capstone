@@ -12,13 +12,13 @@ class Genre
   end
 
   def save_genre(genres)
-    File.open(genres, 'w') do |_genre|
+    File.open(genres, 'w') do |genre|
       json_data = {
         name: @name,
         description: @description,
         items: @items.map(&:to_json)
       }
-      File.write('../json/genres.json', JSON.generate(json_data))
+      genre.write('../json/genres.json', JSON.generate(json_data))
     end
   end
 
