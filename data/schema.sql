@@ -20,3 +20,9 @@ CREATE TABLE music_album (
   genre_id INTEGER,
   FOREIGN KEY (genre_id) REFERENCES genre(id)
 );
+
+CREATE TABLE genre (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL
+);
