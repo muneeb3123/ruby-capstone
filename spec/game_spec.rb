@@ -1,7 +1,7 @@
 require_relative '../modules/game'
 
 describe Game do
-  game = Game.new('2010-01-01', true, '2021-01-01', 'Larry Villegas')
+  game = Game.new('2010-01-01', true, '2021-01-01')
 
   describe '#can_be_archived?' do
     it 'should return true if parents method returns true AND if last_played_at is older than 2 years' do
