@@ -1,4 +1,4 @@
-require_relative '../modules/genre'
+require_relative '../modules/genre/genre'
 require_relative '../modules/item'
 
 RSpec.describe Genre do

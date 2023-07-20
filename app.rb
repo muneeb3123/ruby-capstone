@@ -1,11 +1,14 @@
 require_relative 'modules/data'
 require_relative 'modules/game'
 require_relative 'modules/author'
+require_relative 'modules/genre/genre'
+require_relative 'modules/genre/genre_data'
 
 class App
   attr_reader :games, :authors
 
   include DataJson
+  include GenreData
 
   def initialize
     @games = []
@@ -27,7 +30,7 @@ class App
   end
 
   def list_all_genres
-    puts 'call the method list_all_genres'
+    list_genre
   end
 
   def list_all_labels
