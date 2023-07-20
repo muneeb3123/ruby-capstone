@@ -5,7 +5,7 @@ module MusicData
   def save_music(music)
     music_albums = []
     if File.size?('./modules/music/music.json').nil?
-      File.open('./modules/music/music.json', 'w') {}
+      File.open('./modules/music/music.json', 'w')
     else
       data = File.read('./modules/music/music.json')
       music_albums = JSON.parse(data)
@@ -65,7 +65,8 @@ module MusicData
     title = gets.chomp
 
     puts 'Enter the Published Date of the Music Album (YYYY-MM-DD):'
-    publish_date = Date.parse(gets.chomp)
+    published_date_str = gets.chomp
+    publish_date = Date.parse(published_date_str)
 
     puts 'Enter the Artist of the Music Album:'
     artist = gets.chomp
