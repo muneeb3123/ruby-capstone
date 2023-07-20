@@ -3,12 +3,15 @@ require_relative 'modules/game'
 require_relative 'modules/author'
 require_relative 'modules/genre/genre'
 require_relative 'modules/genre/genre_data'
+require_relative 'modules/music/music'
+require_relative 'modules/music/music_data'
 
 class App
   attr_reader :games, :authors
 
   include DataJson
   include GenreData
+  include MusicData
 
   def initialize
     @games = []
@@ -22,7 +25,7 @@ class App
   end
 
   def list_all_music
-    puts 'call the method list_all_music'
+    list_music
   end
 
   def list_all_games

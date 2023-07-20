@@ -1,4 +1,4 @@
-require_relative '../modules/music'
+require_relative '../modules/music/music'
 require_relative '../modules/item'
 
 RSpec.describe MusicAlbum do
