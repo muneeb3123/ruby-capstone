@@ -13,7 +13,7 @@ CREATE TABLE Game(
 CREATE TABLE music_album (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
-  published_date DATE NOT NULL,
+  publish_date DATE NOT NULL,
   artist TEXT NOT NULL,
   total_tracks INTEGER NOT NULL,
   on_spotify BOOLEAN NOT NULL,

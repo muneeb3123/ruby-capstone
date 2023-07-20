@@ -1,13 +1,15 @@
 require_relative '../item'
 
 class MusicAlbum < Item
-  attr_accessor :artist, :total_tracks, :on_spotify
+  attr_accessor :title, :artist, :total_tracks, :on_spotify, :genre
 
-  def initialize(_title, published_date, artist, total_tracks, on_spotify)
-    super(published_date)
+  def initialize(title, publish_date, artist, total_tracks, on_spotify)
+    super(publish_date)
+    @title = title
     @artist = artist
     @total_tracks = total_tracks
     @on_spotify = on_spotify
+    @genre = nil
   end
 
   def can_be_archived?

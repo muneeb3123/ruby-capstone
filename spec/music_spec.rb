@@ -8,12 +8,12 @@ RSpec.describe MusicAlbum do
       expect(music_album.can_be_archived?).to be(false)
     end
 
-    it 'should return true when on_spotify is true and published_date is older than 10 years' do
+    it 'should return true when on_spotify is true and publish_date is older than 10 years' do
       music_album = MusicAlbum.new('Glory', '2000-01-01', 'Eminem', 6, true)
       expect(music_album.can_be_archived?).to be(true)
     end
 
-    it 'should return false when on_spotify is true but published_date is not older than 10 years' do
+    it 'should return false when on_spotify is true but publish_date is not older than 10 years' do
       music_album = MusicAlbum.new('King Sark', '2023-07-20', 'Sarkodie', 5, true)
       expect(music_album.can_be_archived?).to be(false)
     end

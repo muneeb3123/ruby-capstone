@@ -49,7 +49,8 @@ class App
   end
 
   def add_a_music
-    puts 'call the method add_a_music'
+    new_album = add_new_music_album
+    save_music(new_album)
   end
 
   def add_a_game
