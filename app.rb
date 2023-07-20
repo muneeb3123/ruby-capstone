@@ -1,4 +1,19 @@
+require_relative 'modules/data'
+require_relative 'module/game'
+require_relative 'module/author'
+
 class App
+  attr_reader :games, :authors
+
+  include DataJson
+
+  def initialize
+    @games = []
+    @authors = []
+    load_authors(@authors)
+    load_games(@games)
+  end
+
   def list_all_books
     puts 'call the method list_all_books'
   end
@@ -36,6 +51,7 @@ class App
   end
 
   def quit
+    save_data(@games, @authors)
     puts 'Thank you for using our app!'
     exit
   end
