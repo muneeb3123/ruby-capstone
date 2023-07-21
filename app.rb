@@ -5,6 +5,7 @@ require_relative 'modules/genre/genre'
 require_relative 'modules/genre/genre_data'
 require_relative 'modules/music/music'
 require_relative 'modules/music/music_data'
+require_relative 'modules/book-label/book_manager'
 
 class App
   attr_reader :games, :authors
@@ -18,10 +19,11 @@ class App
     @authors = []
     load_authors(@authors)
     load_games(@games)
+    @book_manager = BookManager.new
   end
 
   def list_all_books
-    puts 'call the method list_all_books'
+    @book_manager.display_books
   end
 
   def list_all_music
@@ -37,7 +39,7 @@ class App
   end
 
   def list_all_labels
-    puts 'call the method list_all_labels'
+    @book_manager.display_labels
   end
 
   def list_all_authors
@@ -45,7 +47,7 @@ class App
   end
 
   def add_a_book
-    puts 'call the method add_a_book'
+    @book_manager.create_book
   end
 
   def add_a_music

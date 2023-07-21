@@ -26,3 +26,21 @@ CREATE TABLE genre (
   name TEXT NOT NULL,
   description TEXT NOT NULL
 );
+
+CREATE TABLE label (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    color VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE book (
+    id SERIAL PRIMARY KEY,
+    publish_date DATE NOT NULL,
+    publisher VARCHAR(255) NOT NULL,
+    cover_state VARCHAR(50) NOT NULL,
+    genre VARCHAR(100),
+    archived BOOLEAN DEFAULT false,
+    label_id INTEGER REFERENCES label(id)
+);
+
+
