@@ -1,0 +1,23 @@
+[
+  {
+    "id": 758,
+    "author": {
+      "id": 488,
+      "first_name": "Emily",
+      "last_name": "Thompson"
+    },
+    "label": {
+      "id": 317,
+      "title": "The Enigma Chronicles",
+      "color": "black"
+    },
+    "genre": {
+      "id": 841,
+      "name": "Mystery",
+      "description": null
+    },
+    "publisher": "Whispering Pages Publishing",
+    "cover_state": "Good",
+    "publish_date": "2023-04-15"
+  }
+]
