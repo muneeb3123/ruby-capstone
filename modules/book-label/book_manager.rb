@@ -68,7 +68,7 @@ class BookManager
       if json_data.empty?
         @books = []
       else
-        new_books = JSON.parse(json_data).map do |book_data|
+        @books = JSON.parse(json_data).map do |book_data|
           label = Label.new(book_data['label']['title'], book_data['label']['color'])
           author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
           genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
@@ -79,7 +79,6 @@ class BookManager
           book.add_genre(genre)
           book
         end
-        @books = new_books
       end
     else
       @books = []
