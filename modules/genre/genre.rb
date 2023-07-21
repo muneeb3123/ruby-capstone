@@ -16,7 +16,7 @@ class Genre
     {
       name: @name,
       description: @description,
-      id: @id,
+      id: @id
     }
   end
 end

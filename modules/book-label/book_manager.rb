@@ -62,7 +62,6 @@ class BookManager
     end
   end
 
-
   def load_book_from_json
     if File.exist?('modules/book-label/book.json')
       json_data = File.read('modules/book-label/book.json')
@@ -73,7 +72,8 @@ class BookManager
           label = Label.new(book_data['label']['title'], book_data['label']['color'])
           author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
           genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
-          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'], author, label, genre)
+          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'], author, label,
+                          genre)
           book.add_label(label)
           book.add_author(author)
           book.add_genre(genre)
@@ -85,8 +85,6 @@ class BookManager
       @books = []
     end
   end
-
-
 
   def load_labels_from_json
     if File.exist?('modules/book-label/labels.json')
@@ -118,7 +116,6 @@ class BookManager
     @publisher = prompt_user_input('Enter book publisher: ')
     @cover_state = prompt_user_input('Is the book cover state "Good" or "Bad"?: ')
   end
-
 
   def prompt_user_input(prompt)
     print prompt

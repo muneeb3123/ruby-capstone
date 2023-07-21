@@ -1,4 +1,4 @@
-require_relative '../modules/game'
+require_relative '../modules/game-author/game'
 
 describe Game do
   game = Game.new('2010-01-01', true, '2021-01-01')
