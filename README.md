@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [ Library Books ] <a name="about-project"></a>
+# 📖 [ Catalog of my things ] <a name="about-project"></a>
 
-> The Library Books Project is an application that has been created to replicate the functions of a physical library within the OOP University environment. This app has been specifically designed to incorporate the principles of Object-Oriented Programming (OOP) in order to develop a robust system that effectively encompasses essential library procedures
+>  We created a console app that will help you to keep a record of different types of things you own: books, music albums, movies, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but you will also prepare a database with tables structure analogical to your program's class structure.
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -42,9 +42,9 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-- **Enroll new students or teachers..**
-- **Manage the library's book collection.**
-- **TMonitor borrowing history and timestamps of books.**
+- **Add books**
+- **View all music and games**
+- **Add games**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -66,7 +66,7 @@ In order to run this project you need:
 
 ```sh
   cd my-folder
-  git clone https://github.com/muneeb3123/library-books.git
+  git clone https://github.com/muneeb3123/ruby-capstone.git
 ```
 
 ### Install
@@ -117,6 +117,12 @@ Not available at the moment.
 - Twitter: [@LarryVillegas](https://twitter.com/LarryVillegas)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/larryvillegascostas/)
 
+👤 **Alhassan (Newton) Osman**
+
+- GitHub: [@flemton](https://github.com/flemton)
+- Twitter: [@oalhassan847](https://twitter.com/oalhassan847)
+- LinkedIn: (https://www.linkedin.com/in/newtongh/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -152,7 +158,7 @@ Feel free to check the [issues page](../../issues/).
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 
-I would like to thank to everyone who watch my code and like it.
+We would like to thank Microverse for giving us this project to work on nad each of our colleagues for putting the effort to see this through.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,7 +168,7 @@ I would like to thank to everyone who watch my code and like it.
 
 - **Did you create this project from scratch?**
 
-  - Yes, and for that reason I learned a lot.
+  - Yes, and for that reason we learned a lot.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
