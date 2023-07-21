@@ -1,7 +1,7 @@
 require 'json'
 require_relative 'game'
 require_relative 'author'
-require_relative 'item'
+require './modules/item'
 
 module DataJson
   def load_games(games)
