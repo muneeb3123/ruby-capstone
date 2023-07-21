@@ -30,7 +30,7 @@ module DataJson
     File.write('./json/authors.json', JSON.pretty_generate(authors.map(&:to_hash)))
   end
 
-  def save_data(games, authors, items)
+  def save_data(games, authors, _items)
     save_games(games)
     save_authors(authors)
   end
