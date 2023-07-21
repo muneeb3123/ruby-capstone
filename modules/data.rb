@@ -31,7 +31,7 @@ module DataJson
   end
 
   def save_data(games, authors, items)
-    save_games(games, items)
+    save_games(games)
     save_authors(authors)
   end
 end

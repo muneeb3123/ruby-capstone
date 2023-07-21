@@ -5,7 +5,6 @@ require_relative 'modules/genre/genre'
 require_relative 'modules/genre/genre_data'
 require_relative 'modules/music/music'
 require_relative 'modules/music/music_data'
-require 'pry'
 
 class App
   attr_reader :games, :authors
@@ -78,11 +77,11 @@ class App
     print 'Last played at:'
     last_played_at = gets.chomp
     new_game = Game.new(publish_date, multiplayer, last_played_at)
-    @games << new_game
     puts 'Please choose the author by number:'
     list_all_authors
     author_id = gets.chomp.to_i - 1
     new_game.add_author(authors[author_id])
+    @games << new_game
     puts 'Game added successfully!'
   end
 
@@ -98,7 +97,7 @@ class App
   end
 
   def quit
-    # save_data(@games, @authors, @items)
+    save_data(@games, @authors, @items)
     puts 'Thank you for using our app!'
     exit
   end
