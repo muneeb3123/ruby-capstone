@@ -10,6 +10,7 @@ OPTIONS = {
   7 => 'Add a book',
   8 => 'Add a Music',
   9 => 'Add a Game',
+  10 => 'Add a Author',
   0 => 'Quit'
 }.freeze
 
@@ -23,6 +24,7 @@ ACTIONS = {
   7 => :add_a_book,
   8 => :add_a_music,
   9 => :add_a_game,
+  10 => :add_a_author,
   0 => :quit
 }.freeze
 
