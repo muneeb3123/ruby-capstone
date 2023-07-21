@@ -1,27 +1,36 @@
-require_relative '../author'
+require_relative '../game-author/author'
 require_relative 'book'
 require_relative '../genre/genre'
 require_relative 'label'
+require_relative 'data_manager'
 
 class BookManager
+  include DataManager
+
   def initialize
     @books = load_book_from_json
     @labels = load_labels_from_json
+    @authors = []
+    @genres = []
   end
 
   def create_book
     user_input
-    book = Book.new(@publish_date, @publisher, @cover_state)
     label = Label.new(@title, @color)
     author = Author.new(@first_name, @last_name)
-    genre = Genre.new(@genre, @description)
+    genre = Genre.new(@genre, @genre_description)
+    book = Book.new(@publish_date, @publisher, @cover_state, author, label, genre)
     book.add_label(label)
     book.add_author(author)
     book.add_genre(genre)
     @labels << label
     @books << book
-    save_book_to_json
-    save_labels_to_json
+    @genres << genre
+    @authors << author
+    save_data_to_json(@books, 'modules/book-label/book.json')
+    save_data_to_json(@authors, 'modules/game-author/author.json')
+    save_data_to_json(@labels, 'modules/book-label/labels.json')
+    save_data_to_json(@genres, 'modules/genre/genres.json')
     puts "successfully created  #{@title} by #{@first_name} #{@last_name}"
   end
 
@@ -53,26 +62,6 @@ class BookManager
     end
   end
 
-  def save_book_to_json
-    json_array = @books.map do |book|
-      author_obj = build_author_json(book.author)
-      label_obj = build_label_json(book.label)
-      genre_obj = build_genre_json(book.genre)
-
-      {
-        id: book.id,
-        author: author_obj,
-        label: label_obj,
-        genre: genre_obj,
-        publisher: book.publisher,
-        cover_state: book.cover_state,
-        publish_date: book.publish_date
-      }
-    end
-
-    json = JSON.pretty_generate(json_array)
-    File.write('modules/book-label/book.json', json)
-  end
 
   def load_book_from_json
     if File.exist?('modules/book-label/book.json')
@@ -81,10 +70,10 @@ class BookManager
         @books = []
       else
         new_books = JSON.parse(json_data).map do |book_data|
-          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'])
           label = Label.new(book_data['label']['title'], book_data['label']['color'])
           author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
           genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
+          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'], author, label, genre)
           book.add_label(label)
           book.add_author(author)
           book.add_genre(genre)
@@ -97,18 +86,7 @@ class BookManager
     end
   end
 
-  def save_labels_to_json
-    json_array = @labels.map do |label|
-      {
-        id: label.id,
-        title: label.title,
-        color: label.color
-      }
-    end
 
-    json = JSON.pretty_generate(json_array)
-    File.write('modules/book-label/labels.json', json)
-  end
 
   def load_labels_from_json
     if File.exist?('modules/book-label/labels.json')
@@ -117,8 +95,7 @@ class BookManager
         @labels = []
       else
         new_labels = JSON.parse(json_data).map do |label_data|
-          label = Label.new(label_data['title'], label_data['color'])
-          label.instance_variable_set(:@id, label_data['id'])
+          label = Label.new(label_data['title'], label_data['color'], id: label_data['id'])
           label
         end
         @labels = new_labels
@@ -142,29 +119,6 @@ class BookManager
     @cover_state = prompt_user_input('Is the book cover state "Good" or "Bad"?: ')
   end
 
-  def build_author_json(author)
-    {
-      id: author.id,
-      first_name: author.first_name,
-      last_name: author.last_name
-    }
-  end
-
-  def build_label_json(label)
-    {
-      id: label.id,
-      title: label.title,
-      color: label.color
-    }
-  end
-
-  def build_genre_json(genre)
-    {
-      id: genre.id,
-      name: genre.name,
-      description: genre.description
-    }
-  end
 
   def prompt_user_input(prompt)
     print prompt
