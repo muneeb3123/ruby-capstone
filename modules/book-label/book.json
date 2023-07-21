@@ -1,23 +1,20 @@
 [
   {
-    "id": 758,
+    "id": 966,
     "author": {
-      "id": 488,
-      "first_name": "Emily",
-      "last_name": "Thompson"
+      "first_name": "j",
+      "last_name": "k"
     },
     "label": {
-      "id": 317,
-      "title": "The Enigma Chronicles",
-      "color": "black"
+      "title": "j",
+      "color": "j"
     },
     "genre": {
-      "id": 841,
-      "name": "Mystery",
-      "description": null
+      "name": "j",
+      "genre_description": "j"
     },
-    "publisher": "Whispering Pages Publishing",
-    "cover_state": "Good",
-    "publish_date": "2023-04-15"
+    "publish_date": "1212-12-12",
+    "publisher": "j",
+    "cover_state": "h"
   }
 ]
