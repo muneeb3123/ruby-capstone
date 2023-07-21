@@ -65,20 +65,20 @@ class BookManager
   def load_book_from_json
     if File.exist?('modules/book-label/book.json')
       json_data = File.read('modules/book-label/book.json')
-      if json_data.empty?
-        @books = []
-      else
-        @books = JSON.parse(json_data).map do |book_data|
-          label = Label.new(book_data['label']['title'], book_data['label']['color'])
-          author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
-          genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
-          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'])
-          book.add_label(label)
-          book.add_author(author)
-          book.add_genre(genre)
-          book
-        end
-      end
+      @books = if json_data.empty?
+                 []
+               else
+                 JSON.parse(json_data).map do |book_data|
+                   label = Label.new(book_data['label']['title'], book_data['label']['color'])
+                   author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
+                   genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
+                   book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'])
+                   book.add_label(label)
+                   book.add_author(author)
+                   book.add_genre(genre)
+                   book
+                 end
+               end
     else
       @books = []
     end
