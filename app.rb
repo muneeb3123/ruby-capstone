@@ -5,6 +5,7 @@ require_relative 'modules/genre/genre'
 require_relative 'modules/genre/genre_data'
 require_relative 'modules/music/music'
 require_relative 'modules/music/music_data'
+require 'pry'
 
 class App
   attr_reader :games, :authors
@@ -16,6 +17,7 @@ class App
   def initialize
     @games = []
     @authors = []
+    @items = []
     load_authors(@authors)
     load_games(@games)
   end
@@ -34,7 +36,7 @@ class App
     else
       puts 'List of all games:'
       @games.each_with_index do |game, index|
-        puts "#{index}- Is multiplayer: #{game.multiplayer}, Last played at: #{game.last_played_at}"
+        puts "#{index + 1}.- Is multiplayer: #{game.multiplayer}, Last played at: #{game.last_played_at}"
       end
     end
   end
@@ -53,7 +55,7 @@ class App
     else
       puts 'List of all authors:'
       authors.each_with_index do |author, index|
-        puts "#{index}- 'ID: '#{author.id} 'First name: '#{author.first_name}, 'Last name', #{author.last_name}"
+        puts "#{index + 1}.- ID: #{author.id} First name: #{author.first_name}, Last name: #{author.last_name}"
       end
     end
   end
@@ -71,21 +73,32 @@ class App
     puts 'Enter Game details:'
     print 'Publish date:'
     publish_date = gets.chomp
-    print 'Is multiplayer:[y/n]'
+    print 'Is multiplayer:[y/n] '
     multiplayer = gets.chomp.downcase == 'y'
     print 'Last played at:'
     last_played_at = gets.chomp
     new_game = Game.new(publish_date, multiplayer, last_played_at)
     @games << new_game
-    puts 'Please choose the author by ID:'
+    puts 'Please choose the author by number:'
     list_all_authors
-    author_id = gets.chomp.to_i
+    author_id = gets.chomp.to_i - 1
     new_game.add_author(authors[author_id])
     puts 'Game added successfully!'
   end
 
+  def add_a_author
+    puts 'Enter Author details:'
+    print 'First name: '
+    first_name = gets.chomp
+    print 'Last name: '
+    last_name = gets.chomp
+    new_author = Author.new(first_name, last_name)
+    authors << new_author
+    puts 'Author added successfully!'
+  end
+
   def quit
-    save_data(@games, @authors)
+    save_data(@games, @authors, @items)
     puts 'Thank you for using our app!'
     exit
   end
