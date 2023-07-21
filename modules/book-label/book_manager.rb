@@ -19,7 +19,7 @@ class BookManager
     label = Label.new(@title, @color)
     author = Author.new(@first_name, @last_name)
     genre = Genre.new(@genre, @genre_description)
-    book = Book.new(@publish_date, @publisher, @cover_state, author, label, genre)
+    book = Book.new(@publish_date, @publisher, @cover_state, author: author, label: label, genre: genre)
     book.add_label(label)
     book.add_author(author)
     book.add_genre(genre)
@@ -62,31 +62,18 @@ class BookManager
     end
   end
 
-
   def load_book_from_json
     if File.exist?('modules/book-label/book.json')
       json_data = File.read('modules/book-label/book.json')
-      if json_data.empty?
-        @books = []
-      else
-        new_books = JSON.parse(json_data).map do |book_data|
-          label = Label.new(book_data['label']['title'], book_data['label']['color'])
-          author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
-          genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
-          book = Book.new(book_data['publish_date'], book_data['publisher'], book_data['cover_state'], author, label, genre)
-          book.add_label(label)
-          book.add_author(author)
-          book.add_genre(genre)
-          book
-        end
-        @books = new_books
-      end
+      @books = if json_data.empty?
+                 []
+               else
+                 parse_books_from_json(json_data)
+               end
     else
       @books = []
     end
   end
-
-
 
   def load_labels_from_json
     if File.exist?('modules/book-label/labels.json')
@@ -119,9 +106,28 @@ class BookManager
     @cover_state = prompt_user_input('Is the book cover state "Good" or "Bad"?: ')
   end
 
-
   def prompt_user_input(prompt)
     print prompt
     gets.chomp
+  end
+
+  def parse_books_from_json(json_data)
+    JSON.parse(json_data).map do |book_data|
+      label = Label.new(book_data['label']['title'], book_data['label']['color'])
+      author = Author.new(book_data['author']['first_name'], book_data['author']['last_name'])
+      genre = Genre.new(book_data['genre']['name'], book_data['genre']['description'])
+      book = Book.new(
+        book_data['publish_date'],
+        book_data['publisher'],
+        book_data['cover_state'],
+        author: author,
+        label: label,
+        genre: genre
+      )
+      book.add_label(label)
+      book.add_author(author)
+      book.add_genre(genre)
+      book
+    end
   end
 end

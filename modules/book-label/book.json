@@ -1,6 +1,6 @@
 [
   {
-    "id": 966,
+    "id": 659,
     "author": {
       "first_name": "j",
       "last_name": "k"
@@ -11,10 +11,46 @@
     },
     "genre": {
       "name": "j",
-      "genre_description": "j"
+      "genre_description": null
     },
     "publish_date": "1212-12-12",
     "publisher": "j",
     "cover_state": "h"
+  },
+  {
+    "id": 21,
+    "author": {
+      "first_name": "a",
+      "last_name": "a"
+    },
+    "label": {
+      "title": "a",
+      "color": "a"
+    },
+    "genre": {
+      "name": "a",
+      "genre_description": null
+    },
+    "publish_date": "1212-12-12-12",
+    "publisher": "a",
+    "cover_state": "a"
+  },
+  {
+    "id": 466,
+    "author": {
+      "first_name": "a",
+      "last_name": "a"
+    },
+    "label": {
+      "title": "a",
+      "color": "a"
+    },
+    "genre": {
+      "name": "a",
+      "genre_description": "a"
+    },
+    "publish_date": "1212-12-12",
+    "publisher": "a",
+    "cover_state": "a"
   }
 ]

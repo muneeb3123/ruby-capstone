@@ -18,7 +18,7 @@ class Label
     {
       title: @title,
       color: @color,
-      id: @id,
+      id: @id
     }
   end
 end
