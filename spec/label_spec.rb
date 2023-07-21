@@ -1,4 +1,4 @@
-require_relative '../modules/label'
+require_relative '../modules/book-label/label'
 require_relative '../modules/item'
 
 describe Label do

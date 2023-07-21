@@ -1,4 +1,4 @@
-require_relative '../modules/author'
+require_relative '../modules/game-author/author'
 require_relative '../modules/item'
 
 describe Author do
