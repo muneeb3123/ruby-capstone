@@ -1,0 +1,56 @@
+[
+  {
+    "id": 361,
+    "author": {
+      "first_name": "j",
+      "last_name": "k"
+    },
+    "label": {
+      "title": "j",
+      "color": "j"
+    },
+    "genre": {
+      "name": "j",
+      "genre_description": null
+    },
+    "publish_date": "1212-12-12",
+    "publisher": "j",
+    "cover_state": "h"
+  },
+  {
+    "id": 320,
+    "author": {
+      "first_name": "Newton",
+      "last_name": "Isaac"
+    },
+    "label": {
+      "title": "Journey to the center of Earth",
+      "color": "teal"
+    },
+    "genre": {
+      "name": "Sci-Fi",
+      "genre_description": null
+    },
+    "publish_date": "2012-04-02",
+    "publisher": "Flemton Publications",
+    "cover_state": "Good"
+  },
+  {
+    "id": 340,
+    "author": {
+      "first_name": "Larry",
+      "last_name": "Newton"
+    },
+    "label": {
+      "title": "Lord of the Rings",
+      "color": "black"
+    },
+    "genre": {
+      "name": "Sci-Fi",
+      "genre_description": "Science fiction"
+    },
+    "publish_date": "2012-09-07",
+    "publisher": "Microverse",
+    "cover_state": "Good"
+  }
+]
