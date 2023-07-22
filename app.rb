@@ -84,6 +84,7 @@ class App
     author_id = gets.chomp.to_i - 1
     new_game.add_author(authors[author_id])
     @games << new_game
+    save_games(@games)
     puts 'Game added successfully!'
   end
 
@@ -95,11 +96,11 @@ class App
     last_name = gets.chomp
     new_author = Author.new(first_name, last_name)
     authors << new_author
+    save_authors(authors)
     puts 'Author added successfully!'
   end
 
   def quit
-    save_data(@games, @authors, @items)
     puts 'Thank you for using our app!'
     exit
   end

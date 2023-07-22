@@ -3,9 +3,13 @@ require_relative 'book'
 require_relative '../genre/genre'
 require_relative 'label'
 require_relative 'data_manager'
+require_relative '../game-author/data'
+require_relative '../genre/genre_data'
 
 class BookManager
   include DataManager
+  include DataJson
+  include GenreData
 
   def initialize
     @books = load_book_from_json
@@ -28,9 +32,9 @@ class BookManager
     @genres << genre
     @authors << author
     save_data_to_json(@books, 'modules/book-label/book.json')
-    save_data_to_json(@authors, 'modules/game-author/author.json')
+    save_authors(@authors)
     save_data_to_json(@labels, 'modules/book-label/labels.json')
-    save_data_to_json(@genres, 'modules/genre/genres.json')
+    save_genre(@genres)
     puts "successfully created  #{@title} by #{@first_name} #{@last_name}"
   end
 
